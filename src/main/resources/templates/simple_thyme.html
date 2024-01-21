@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple thymeleaf usage</title>
+</head>
+<body>
+<h1>Сотрудники</h1>
+<table>
+    <tr>
+        <th>Должность | </th>
+        <th>Фамилия</th>
+    </tr>
+    <tr th:each="person : ${people}">
+        <td th:text="${person.key}"></td>
+        <td th:text="${person.value}"></td>
+    </tr>
+</table>
+</body>
+</html>

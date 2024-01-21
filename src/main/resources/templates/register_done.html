@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration form</title>
+    <style type="text/css">
+        span {
+            display: inline-block;
+            width: 200px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+<div align="center">
+    <h1> Регистрация пройдена!</h1>
+    <span> Имя: </span> <span th:text="${user.name}"></span></br>
+    <span> Email: </span> <span th:text="${user.email}"></span></br>
+    <span> Дата рождения: </span> <span th:text="${user.birthday}"></span></br>
+    <span> Пол: </span> <span th:text="${user.gender}"></span></br>
+    <span> Вид деятельности: </span> <span th:text="${user.occupation}"></span></br>
+    <span> Несколько слов о себе: </span> <span th:text="${user.note}"></span></br>
+
+</div>
+
+
+</body>
+
+</html>
