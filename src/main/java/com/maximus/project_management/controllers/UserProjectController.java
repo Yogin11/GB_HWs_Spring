@@ -59,8 +59,8 @@ public class UserProjectController {
 
     /**
      * Удаление сущности, связывающей проект и пользователя по их id
-     * @param userId
-     * @param projectId
+     * @param userId идентификатор пользователя
+     * @param projectId идентификатор проекта
      * @return пустой объект с ответом сервера
      */
     @DeleteMapping("/projects/{projectId}/{userId}")

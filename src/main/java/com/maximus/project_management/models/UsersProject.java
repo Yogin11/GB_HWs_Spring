@@ -13,19 +13,17 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-//@Table(name = "users_project")
-//@DiscriminatorValue("UsersProject")
 public class UsersProject extends EntityWithRelation {
 
-    //    @ManyToOne
-//    @JoinColumn(name="project_id") //, referencedColumnName="id")
+    /** Идентификатор проекта */
     @Column(name = "project_id")
     private Long projectId;
-    //    @ManyToOne
-//    @JoinColumn(name="user_id") //, referencedColumnName="id")
+
+    /** Идентификатор пользователя */
     @Column(name = "user_id")
     private Long userId;
 
+    /** Конструктор класса с установкой идентификатора RelatedEntityId */
     public UsersProject() {
         super.setRelatedEntityId(1L);
     }
