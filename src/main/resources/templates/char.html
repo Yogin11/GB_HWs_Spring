@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Character</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Honk&family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__person">
+                Ricky and Morty API:
+            </div>
+            <div class="header__person_name">
+                    <span th:text="${character.name}"></span>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+          
+        <div class="character_view">
+           <!--  <div class="picture"> */ -->
+               <!--    </div> -->
+               <div class="item_info">
+                <img th:src="${character.image}" />
+
+                <p> </p>
+                <h4><label>№: </label><label><span th:text="${character.id}"> </span></label> </h4>
+                <p><label>Имя: </label><span th:text="${character.name}"> </span></p>
+                <p><label>Статус: </label><span th:text="${character.status}"> </span></p>
+                <p><label>Вид: </label><span th:text="${character.species}"> </span></p>
+                <p><label>Тип: </label><span th:text="${character.type}"> </span></p>
+                <p><label>Пол: </label><span th:text="${character.gender}"> </span></p>
+                <p><label>Место рождения: </label><span th:text="${character.origin.name}"> </span></p>
+                <p><label>Место проживания: </label><span th:text="${character.location.name}"> </span></p>
+                <p><label>Дата создания: </label><span th:text="${character.created}"> </span></p>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

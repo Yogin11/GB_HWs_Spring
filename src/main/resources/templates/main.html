@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ricky and Morty API maximus</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!--  <h1>Ricky and Morty API</h1> -->
+    <header class="header">
+        <div class="container">
+            <div class="header__main">
+                Ricky and Morty API
+            </div>
+        </div>
+    </header>
+    <!--{% comment %} <form action="/find" method="get">-->
+    <!--Поиск героя сериала по имени: <input type="text" name="
+-->
+    <div class="container">
+        <div class="buttons">
+            <form action="#" th:action="'./'+${page_number-1}" method="get">
+                <div class="button_left">
+                    <button type="submit" value="Предыдущая страница">Предыд.страница</button>
+                </div>
+            </form>
+            <form action="#" th:action="'./'+${page_number+1}" method="get">
+                <div class="button_right">
+                    <button type="submit" value="След. страница">След. страница</button>
+                </div>
+            </form>
+        </div>
+        <table>
+            <tr th:each="ch: ${characters}">
+                <div class="item">
+                    <td>
+                        <div class="picture">
+                            <a th:href="'./members/'+${ch.id}"> <img th:src="${ch.image}" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="item_info">
+                            
+                            <p><label>№: </label><label><span th:text="${ch.id}"> </span></label> </p>
+                            <p><label>Имя: </label><span th:text="${ch.name}"> </span></p>
+                            <p><label>Статус: </label><span th:text="${ch.status}"> </span></p>
+                            <p><label>Вид: </label><span th:text="${ch.species}"> </span></p>
+                            <p><label>Дата создания: </label><span th:text="${ch.created}"> </span></p>
+
+                        </div>
+                    </td>
+                </div>
+            </tr>
+        </table>
+        <div class="buttons">
+            <form action="#" th:action="'./'+${page_number-1}" method="get">
+                <div class="button_left">
+                    <button type="submit" value="Предыдущая страница">Предыд.страница</button>
+                </div>
+            </form>
+            <form action="#" th:action="'./'+${page_number+1}" method="get">
+                <div class="button_right">
+                    <button type="submit" value="След. страница">След. страница</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>

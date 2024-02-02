@@ -1,0 +1,123 @@
+html{
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before{
+    box-sizing: inherit;
+}
+
+body{
+   
+    font-family: 'Roboto', sans-serif;
+    background: #070A1B;
+    font-weight: 400;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+
+}
+label{
+    color: brown;
+    font-size: 19px;
+    width: 10ch;
+}
+.picture img {
+    height: 200px;
+    border: 2px solid #55c5e9;
+    padding: 11px;
+    background: #777;
+    margin: 10px;
+    border-radius: 3%;    
+    transition: .3s
+}
+.picture img:hover{
+    transform: scale(1.25);
+}
+
+.header{
+    display: flex;
+    height: 170px;
+    font-family: 'Honk', system-ui;
+    font-weight: 400;
+    font-size: 120px;
+}
+
+.header__main{
+    font-size: 120px;
+}
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+.character_view img{
+    float:left;
+    height: 400px;
+    border: 2px solid #55c5e9;
+    padding: 15px;
+    background: #777;
+    margin: 0px 100px;
+    border-radius: 3%;    
+    /* transition: .3s; */
+}
+.character_view p {
+    margin-left: 20px;
+}
+.header__person{
+    text-align: center;
+    font-size: 40px;
+    height: 70px;
+
+}
+
+.header__person_name {
+    text-align: center;
+    font-size: 100px;
+    font-stretch:ultra-condensed;
+    height: 100px;
+}
+ 
+.buttons{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.button_left button {
+    
+    float:left;
+    background-color: #1c87c9;
+    border: 2px solid #55c5e9;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    /* height: 30px; */
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 20px;
+    margin: 4px 4px;
+    cursor: pointer;
+    border-radius: 20%;
+}
+.button_right button {  
+    float: right;
+    background-color: #1c87c9;
+    border: 2px solid #55c5e9;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    /* height: 30px; */
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 20px;
+    margin: 4px 4px;
+    cursor: pointer;
+    border-radius: 20%;
+}
+button:hover {
+        background-color: #45a049;
+} 
+
+
