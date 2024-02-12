@@ -1,5 +1,6 @@
 package com.maximus.project_management.services;
 
+import com.maximus.project_management.aspect.TrackUserAction;
 import com.maximus.project_management.models.User;
 import com.maximus.project_management.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -32,6 +33,7 @@ public class UserService {
      * @param id идентификатор пользователя
      * @return запрошенный пользователь
      */
+    @TrackUserAction
     public User getUserById(Long id) {
         Optional<User> optUser = userRepo.findById(id);
         return optUser.orElse(null);
@@ -43,6 +45,7 @@ public class UserService {
      * @param user новый пользователь
      * @return добавленный пользователь
      */
+    @TrackUserAction
     public User addUser(User user) {
         return userRepo.save(user);
     }
@@ -54,6 +57,7 @@ public class UserService {
      * @param userDetails пользователь с обновленными данными, (полученными из контроллера)
      * @return измененный пользователь
      */
+    @TrackUserAction
     public User updateUser(Long id, User userDetails) {
         Optional<User> optionalUser = userRepo.findById(id);
         if (optionalUser.isPresent()) {

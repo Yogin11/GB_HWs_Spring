@@ -1,5 +1,6 @@
 package com.maximus.project_management.services;
 
+import com.maximus.project_management.aspect.TrackUserAction;
 import com.maximus.project_management.models.Project;
 import com.maximus.project_management.models.User;
 import com.maximus.project_management.repositories.ProjectRepository;
@@ -33,6 +34,7 @@ public class ProjectService {
      * @param id идентификатор проекта
      * @return запрошенный проект
      */
+    @TrackUserAction
     public Project getProjectById(Long id){
         Optional<Project> optProject = projectRepo.findById(id);
         return optProject.orElse(null);
@@ -43,6 +45,7 @@ public class ProjectService {
      * @param project новый проект
      * @return добавленный проект
      */
+    @TrackUserAction
     public Project addProject(Project project){
         if (project.getCreatedDate()==null){
             project.setCreatedDate(LocalDate.now());
@@ -56,6 +59,7 @@ public class ProjectService {
      * @param projectDetails проекта с обновленными данными, (полученными из контроллера)
      * @return измененный проект
      */
+    @TrackUserAction
     public Project updateProject (Long id, Project projectDetails){
         Optional<Project> optionalProject = projectRepo.findById(id);
         if (optionalProject.isPresent()){
@@ -73,6 +77,7 @@ public class ProjectService {
      * Удаление проекта по ID
      * @param id идентификатор проекта
      */
+    @TrackUserAction
     public void deleteProject(Long id){
         projectRepo.deleteById(id);
     }

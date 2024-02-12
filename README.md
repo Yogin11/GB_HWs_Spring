@@ -56,3 +56,4 @@
       метод POST добавляет в проект с id=2 пользователя с id=1
     - <span style="color:#59afe1">localhost:8080/user_project/projects/1/3 </span> - 
     метод DELETE удаляет из проекта с id=2 пользователя с id=3
+

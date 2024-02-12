@@ -1,5 +1,6 @@
 package com.maximus.project_management.services;
 
+import com.maximus.project_management.aspect.TrackUserAction;
 import com.maximus.project_management.models.Project;
 import com.maximus.project_management.models.User;
 import com.maximus.project_management.repositories.ProjectRepository;
@@ -32,9 +33,9 @@ public class UserProjectService {
      * @param projectId идентификатор проекта
      * @return список пользователей проекта
      */
+    @TrackUserAction
     public List<User> getUsersByProjectId(Long projectId) {
         List<Long> listUserIds = userProjRepo.findByProjectId(projectId);
-        System.out.println(listUserIds);
         List<User> userList = new ArrayList<>();
         for (Long num : listUserIds) {
             userList.add(userRepository.findById(num).orElse(null));
@@ -47,9 +48,9 @@ public class UserProjectService {
      * @param userId идентификатор пользователя
      * @return список проектов пользователя
      */
+    @TrackUserAction
     public List<Project> getProjectsByUserId(Long userId) {
         List<Long> listProjectIds = userProjRepo.findByUserId(userId);
-        System.out.println(listProjectIds);
         List<Project> projectList = new ArrayList<>();
         for (Long num : listProjectIds) {
             projectList.add(projectRepository.findById(num).orElse(null));
@@ -62,6 +63,7 @@ public class UserProjectService {
      * @param userId идентификатор пользователя
      * @param projectId идентификатор проекта
      */
+    @TrackUserAction
     public void addUserToProject(Long userId, Long projectId) {
         userProjRepo.addUserToProject(userId, projectId);
     }
@@ -71,6 +73,7 @@ public class UserProjectService {
      * @param userId идентификатор пользователя
      * @param projectId идентификатор проекта
      */
+    @TrackUserAction
     public void removeUserFromProject(Long userId, Long projectId) {
         userProjRepo.deleteUserFromProject(userId,projectId);
     }
