@@ -1,7 +1,6 @@
 package com.maximus.project_management.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
@@ -19,7 +18,6 @@ public class UserActionLog {
         Object[] args = joinPoint.getArgs();
         System.out.println("Вызывается метод  " + methodName + " с параметрами " + Arrays.asList(args));
         Object retMethod =  joinPoint.proceed(args);
-        System.out.println("После запуска ... ");
         return retMethod;
     }
 

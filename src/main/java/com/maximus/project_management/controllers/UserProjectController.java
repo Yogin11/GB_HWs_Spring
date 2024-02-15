@@ -16,7 +16,7 @@ import java.util.List;
  */
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/user_project")
+@RequestMapping("/user-project")
 public class UserProjectController {
 
 

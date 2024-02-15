@@ -7,7 +7,9 @@ import com.maximus.project_management.repositories.ProjectRepository;
 import com.maximus.project_management.repositories.UserRepository;
 import com.maximus.project_management.repositories.UsersProjectRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +26,8 @@ public class UserProjectService {
      * проект и пользователь-проект
      */
     private final UsersProjectRepository userProjRepo;
-    private final UserRepository userRepository;
-    private final ProjectRepository projectRepository;
+//    private final UserRepository userRepository;
+//    private final ProjectRepository projectRepository;
 
     /**
      * Получение списка пользователей проекта по id проекта
@@ -37,8 +39,13 @@ public class UserProjectService {
     public List<User> getUsersByProjectId(Long projectId) {
         List<Long> listUserIds = userProjRepo.findByProjectId(projectId);
         List<User> userList = new ArrayList<>();
+        RestTemplate template = new RestTemplate();
+        String requestPage = "http://127.0.0.1:8080/users";
         for (Long num : listUserIds) {
-            userList.add(userRepository.findById(num).orElse(null));
+//            userList.add(userRepository.findById(num).orElse(null));
+            ResponseEntity<User> response = template.getForEntity(requestPage+"/"+num, User.class);
+            userList.add(response.getBody());
+
         }
         return userList;
     }
@@ -52,8 +59,12 @@ public class UserProjectService {
     public List<Project> getProjectsByUserId(Long userId) {
         List<Long> listProjectIds = userProjRepo.findByUserId(userId);
         List<Project> projectList = new ArrayList<>();
+        RestTemplate template = new RestTemplate();
+        String requestPage = "http://127.0.0.1:8080/projects";
         for (Long num : listProjectIds) {
-            projectList.add(projectRepository.findById(num).orElse(null));
+//            projectList.add(projectRepository.findById(num).orElse(null));
+            ResponseEntity<Project> response = template.getForEntity(requestPage+"/"+num, Project.class);
+            projectList.add(response.getBody());
         }
         return projectList;
     }
