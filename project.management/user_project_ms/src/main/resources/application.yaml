@@ -1,0 +1,21 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: User-project-ms
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+  datasource:
+    generate-unique-name: false
+    name: project_managementDB
+api:
+  users:
+    basicUri: http://127.0.0.1:8081/users/
+  projects:
+    basicUri: http://127.0.0.1:8082/projects/
