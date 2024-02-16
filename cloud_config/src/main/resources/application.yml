@@ -1,0 +1,15 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Yogin11/GB_Spring_configs.git
+#          username: username
+#          password: password
+          default-label: master
+          search-paths: "{application}"

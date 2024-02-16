@@ -1,8 +1,6 @@
 package com.maximus.user_project_ms.services;
 
 import com.maximus.user_project_ms.feign_clients.UserProjectFeignClient;
-import com.maximus.user_project_ms.models.api.ApiProjects;
-import com.maximus.user_project_ms.models.api.ApiUsers;
 import com.maximus.user_project_ms.repositories.UsersProjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

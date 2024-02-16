@@ -16,7 +16,7 @@ spring:
           uri: http://192.168.1.10:8082/
           predicates:
             - Path=/projects/**
-        - id: Users-Projects-ms
+        - id: User-project-ms
           uri: http://192.168.1.10:8083/
           predicates:
             - Path=/user-project/**
