@@ -20,7 +20,7 @@ public class ProjectManagementApplication {
 						.uri("http://localhost:8081/"))
 				.route("Projects-ms", r -> r.path("/projects/**")
 						.uri("http://localhost:8082/"))
-				.route("Users-Projects-ms", r -> r.path("/user-project/**")
+				.route("User-project-ms", r -> r.path("/user-project/**")
 						.uri("http://localhost:8083/")).build();
 	}
 }
