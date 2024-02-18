@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 /**
  * Интерфейс Feign для связи с другими сервисами
  */
-@FeignClient(name= "project-service", url="http://127.0.0.1:8765")
+@FeignClient(name= "user-project-service") //, url="http://127.0.0.1:8765")
 public interface UserProjectFeignClient {
 
     /**

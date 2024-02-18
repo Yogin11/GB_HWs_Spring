@@ -16,10 +16,13 @@ import java.util.List;
 public class UserProjectService {
 
     /**
-     * Внедряемые зависимости репозиториев сущностей пользователь,
-     * проект и пользователь-проект
+     * Внедряемая зависимость репозитория пользователь-проект
      */
     private final UsersProjectRepository userProjRepo;
+
+    /**
+     * Внедряемая зависимость интерфейса feignClient
+     */
     private final UserProjectFeignClient feignClient;
 
 

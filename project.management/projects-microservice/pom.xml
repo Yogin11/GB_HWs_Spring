@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.maximus</groupId>
-	<artifactId>projects_microservice</artifactId>
+	<artifactId>projects-microservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>projects_microservice</name>
 	<description>projects_microservice</description>
