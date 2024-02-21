@@ -11,3 +11,12 @@ spring:
   datasource:
     generate-unique-name: false
     name: project_managementDB
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus, metrics #, metrics # "*" # health, env, info
+  endpoint:
+    health:
+      show-details: always

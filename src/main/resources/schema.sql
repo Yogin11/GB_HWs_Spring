@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
-    password VARCHAR(8) NOT NULL,
+    password VARCHAR(8),
     email VARCHAR(30),
     role VARCHAR(15)
     );

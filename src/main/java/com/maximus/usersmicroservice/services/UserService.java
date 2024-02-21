@@ -61,10 +61,19 @@ public class UserService {
         Optional<User> optionalUser = userRepo.findById(id);
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
+            if (userDetails.getName() != null) {
+                user.setName(userDetails.getName());
+            }
             user.setName(userDetails.getName());
-            user.setPassword(userDetails.getPassword());
-            user.setEmail(userDetails.getEmail());
-            user.setRole(userDetails.getRole());
+            if (userDetails.getPassword() != null) {
+                user.setPassword(userDetails.getPassword());
+            }
+            if (userDetails.getEmail() != null) {
+                user.setEmail(userDetails.getEmail());
+            }
+            if (userDetails.getRole() != null) {
+                user.setRole(userDetails.getRole());
+            }
             return userRepo.save(user);
         } else {
             throw new IllegalArgumentException("Пользователь с id " + id + " не найден");
