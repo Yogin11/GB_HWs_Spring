@@ -3,10 +3,13 @@ package com.maximus.usersmicroservice.controllers;
 
 import com.maximus.usersmicroservice.models.User;
 import com.maximus.usersmicroservice.services.UserService;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.Timer;
 import lombok.Data;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Класс контроллер пользователей
@@ -18,6 +21,8 @@ import java.util.List;
 //@RequiredArgsConstructor
 public class UserController {
 
+    private final Timer timer;
+    private final Counter counter;
     private final UserService userService;
 
     /**
@@ -27,7 +32,15 @@ public class UserController {
      */
     @GetMapping
     public List<User> getAllUsers(){
-        return userService.getAllUsers();
+        AtomicReference<List<User>> newList = new AtomicReference<>();
+        counter.increment();
+        timer.record(()-> {
+            newList.set(userService.getAllUsers());
+        });
+
+        return newList.get();
+
+//        return userService.getAllUsers();
     }
 
     /**
@@ -37,6 +50,7 @@ public class UserController {
      */
     @GetMapping("/{id}")
     public User getUserById(@PathVariable("id") Long id){
+        counter.increment();
         return userService.getUserById(id);
     }
 

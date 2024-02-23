@@ -3,10 +3,12 @@ package com.maximus.usersmicroservice.services;
 import com.maximus.usersmicroservice.models.User;
 import com.maximus.usersmicroservice.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Timer;
 
 /**
  * Класс-сервис обработки пользователей
@@ -16,6 +18,9 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepo;
+
+//    @Autowired
+//    private final Timer timer;
 
     /**
      * Получение списка пользователей
@@ -34,8 +39,8 @@ public class UserService {
      */
 //    @TrackUserAction
     public User getUserById(Long id) {
-        Optional<User> optUser = userRepo.findById(id);
-        return optUser.orElse(null);
+            Optional<User> optUser = userRepo.findById(id);
+            return optUser.orElse(null);
     }
 
     /**
