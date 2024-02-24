@@ -10,7 +10,7 @@ spring:
       enabled: true
   datasource:
     generate-unique-name: false
-    name: project_managementDB
+    name: "project_managementDB"
 
 management:
   endpoints:
