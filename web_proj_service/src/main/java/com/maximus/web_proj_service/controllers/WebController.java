@@ -6,8 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -23,11 +22,41 @@ public class WebController {
     private final WebUsersFeignClient feignClient;
 
     @GetMapping("/showUsers")
-    public ModelAndView showUsers(){
+    public ModelAndView showUsers() {
         ModelAndView mav = new ModelAndView("list-users");
         List<User> list = feignClient.getAllUsers().getBody();
-        System.out.println(list);
-        mav.addObject("users",list);
+        mav.addObject("users", list);
         return mav;
     }
+
+    @GetMapping("/addUserForm")
+    public ModelAndView addUserForm() {
+        ModelAndView mav = new ModelAndView("add-user-form");
+        User newUser = new User(0L, "", "", "", "");
+        mav.addObject("user", newUser);
+        return mav;
+    }
+
+    @PostMapping("/saveUser")
+    public String saveUser(@ModelAttribute User user) {
+        feignClient.addUser(user);
+        return "redirect:/showUsers";
+
+    }
+
+    @GetMapping("/updateUserForm")
+    public ModelAndView showUpdateForm(@RequestParam("id") Long userId) {
+        ModelAndView mav = new ModelAndView("add-user-form");
+        User updUser = feignClient.getUserById(userId).getBody();
+        mav.addObject("user", updUser);
+        return mav;
+
+    }
+
+    @GetMapping("/deleteUser")
+    public String deleteUser(@RequestParam("id") Long userId) {
+        feignClient.removeUser(userId);
+        return "redirect:/showUsers";
+    }
+
 }

@@ -3,18 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
+    <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.0/datatables.min.css" 
+    rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+    crossorigin="anonymous">
+
 </head>
 <body>
-<div>
+<div class="container">
     <h2>List of Users</h2>
     <hr/>
+    <a th:href="@{/addUserForm}" class="btn btn-primary mb-2">Добавить пользователя</a>
 
-    <table bor>
+    <table class="table table-bordered table-striped" id="user-table" >
         <thead>
         <tr>
             <th>Id</th>
-            <th>First name</th>
-            <th>Last name</th>
+            <th>Имя</th>
+            <th>ПарольPassword</th>
+            <th>Email</th>
+            <th>Позиция</th>
+            <th>Действия с записью</th>
+            
         </tr>
         </thead>
         <tbody>
@@ -22,14 +34,29 @@
             <td th:text="${user.id}"></td>
             <td th:text="${user.name}"></td>
             <td th:text="${user.password}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.role}"></td>
 
-            <!--                <td><a th:href="@{user-update/{id}(id=${user.id})}">Edit</a></td>-->
-            <!--                <td><a th:href="@{user-delete/{id}(id=${user.id})}">Delete</a></td>-->
+            <td>
+                <a th:href="@{/updateUserForm(id=${user.id})}" class="btn btn-info">Обновить</a>
+                <a th:href="@{/deleteUser(id=${user.id})}" class="btn btn-danger ml-2">Удалить</a>
+            </td>
         </tr>
         </tbody>
     </table>
 
-    <!--    <p><a href="/user-create">Create user</a></p>-->
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.0/datatables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#user-table").dataTable({
+            'aoColumnDefs': [{
+                'bSortable':false,
+                'aTargets': [-1]
+            }]
+        });
+    })
+</script>
 </body>
 </html>
