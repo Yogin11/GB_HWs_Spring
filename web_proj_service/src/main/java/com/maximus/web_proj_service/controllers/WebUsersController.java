@@ -4,33 +4,35 @@ import com.maximus.web_proj_service.feign_clients.WebUsersFeignClient;
 import com.maximus.web_proj_service.models.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.Objects;
 
 
 @RequiredArgsConstructor
-@Controller
+@Component
 //@RequestMapping("/general")
-public class WebController {
+public class WebUsersController implements UIEndpointParsing{
 
     @Autowired
     private final WebUsersFeignClient feignClient;
 
-    @GetMapping("/showUsers")
-    public ModelAndView showUsers() {
+//    @GetMapping("/showUsers")
+    public ModelAndView showData() {
         ModelAndView mav = new ModelAndView("list-users");
         List<User> list = feignClient.getAllUsers().getBody();
         mav.addObject("users", list);
         return mav;
     }
 
-    @GetMapping("/addUserForm")
-    public ModelAndView addUserForm() {
+//    @GetMapping("/addUserForm")
+    public ModelAndView addDataForm() {
         ModelAndView mav = new ModelAndView("add-user-form");
         User newUser = new User(0L, "", "", "", "");
         mav.addObject("user", newUser);
@@ -44,8 +46,8 @@ public class WebController {
 
     }
 
-    @GetMapping("/updateUserForm")
-    public ModelAndView showUpdateForm(@RequestParam("id") Long userId) {
+//    @GetMapping("/updateUserForm")
+    public ModelAndView updateDataForm(@RequestParam("id") Long userId) {
         ModelAndView mav = new ModelAndView("add-user-form");
         User updUser = feignClient.getUserById(userId).getBody();
         mav.addObject("user", updUser);
