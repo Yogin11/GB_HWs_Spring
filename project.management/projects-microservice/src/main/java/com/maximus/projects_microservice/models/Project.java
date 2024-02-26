@@ -2,6 +2,7 @@ package com.maximus.projects_microservice.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -26,5 +27,6 @@ public class Project {
 
     /** дата создания проекта */
     @Column(name = "created_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate createdDate;
 }

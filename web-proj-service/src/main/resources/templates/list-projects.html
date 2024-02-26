@@ -19,33 +19,31 @@
     <div id="panel">
    
         
-    <h2>Пользователи</h2>
+    <h2>Проекты</h2>
     <hr/>
-    <a th:href="@{/addData}" class="btn btn-primary mb-2">Добавить пользователя</a>
+    <a th:href="@{/addData}" class="btn btn-primary mb-2">Добавить проект</a>
 
-    <table class="table table-bordered table-striped" id="user-table" >
+    <table class="table table-bordered table-striped" id="project-table" >
         <thead>
         <tr>
             <th>Id</th>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Email</th>
-            <th>Позиция</th>
-            <th>Действия с записью</th>
-            
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Дата создания</th>
+            <th>Действия с проектами</th>
+                       
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user : ${users}">
-            <td th:text="${user.id}"></td>
-            <td th:text="${user.name}"></td>
-            <td th:text="${user.surname}"></td>
-            <td th:text="${user.email}"></td>
-            <td th:text="${user.role}"></td>
-
+        <tr th:each="project : ${projects}">
+            <td th:text="${project.id}"></td>
+            <td th:text="${project.name}"></td>
+            <td th:text="${project.description}"></td>
+            <td th:text="${project.createdDate}"></td>
             <td>
-                <a th:href="@{/updateData(id=${user.id})}" class="btn btn-info">Обновить</a>
-                <a th:href="@{/deleteData(id=${user.id})}" class="btn btn-danger ml-2">Удалить</a>
+                <a th:href="@{/usersProject(id=${project.id})}" class="btn btn-info btn-sm ">Участники<br>проекта</a>
+                <a th:href="@{/updateData(id=${project.id})}" class="btn btn-warning btn-sm ml-2">Обновить</a>
+                <a th:href="@{/deleteData(id=${project.id})}" class="btn btn-danger  btn-sm ml-2">Удалить</a>
             </td>
         </tr>
         </tbody>
@@ -63,7 +61,7 @@
     </script> 
 <script>
     $(document).ready(function() {
-        $("#user-table").dataTable({
+        $("#project-table").dataTable({
             'aoColumnDefs': [{
                 'bSortable':false,
                 'aTargets': [-1]

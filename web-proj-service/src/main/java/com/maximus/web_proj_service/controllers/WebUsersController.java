@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @RequiredArgsConstructor
-@Component
+@Component("WebUsersControl")
 public class WebUsersController implements UIEndpointParsing {
 
     @Autowired

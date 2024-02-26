@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/web_proj_service/pom.xml" />
         <option value="$PROJECT_DIR$/project.management/cloud_config/pom.xml" />
         <option value="$PROJECT_DIR$/project.management/eureka_server/pom.xml" />
+        <option value="$PROJECT_DIR$/web-proj-service/pom.xml" />
       </list>
     </option>
   </component>
