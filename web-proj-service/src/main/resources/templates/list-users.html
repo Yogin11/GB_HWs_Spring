@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container">
-    <h2>List of Users</h2>
+    <h2>Пользователи</h2>
     <hr/>
     <a th:href="@{/addData}" class="btn btn-primary mb-2">Добавить пользователя</a>
 
@@ -39,7 +39,7 @@
 
             <td>
                 <a th:href="@{/updateData(id=${user.id})}" class="btn btn-info">Обновить</a>
-                <a th:href="@{/deleteUser(id=${user.id})}" class="btn btn-danger ml-2">Удалить</a>
+                <a th:href="@{/deleteData(id=${user.id})}" class="btn btn-danger ml-2">Удалить</a>
             </td>
         </tr>
         </tbody>

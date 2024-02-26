@@ -9,12 +9,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="user-project-ms" />
         <module name="project.management" />
-        <module name="eureka_server" />
         <module name="api-gateway" />
-        <module name="web_proj_service" />
+        <module name="eureka_server" />
         <module name="projects-microservice" />
-        <module name="cloud_config" />
+        <module name="web-proj-service" />
         <module name="Users-ms" />
+        <module name="cloud_config" />
       </profile>
     </annotationProcessing>
   </component>
@@ -27,7 +27,7 @@
       <module name="project.management" options="-parameters" />
       <module name="projects-microservice" options="-parameters" />
       <module name="user-project-ms" options="-parameters" />
-      <module name="web_proj_service" options="-parameters" />
+      <module name="web-proj-service" options="-parameters" />
     </option>
   </component>
 </project>

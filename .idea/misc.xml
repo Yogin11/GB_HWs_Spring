@@ -12,6 +12,8 @@
         <option value="$PROJECT_DIR$/project.management/user-project-ms/pom.xml" />
         <option value="$PROJECT_DIR$/project.management/users-ms/pom.xml" />
         <option value="$PROJECT_DIR$/web_proj_service/pom.xml" />
+        <option value="$PROJECT_DIR$/project.management/cloud_config/pom.xml" />
+        <option value="$PROJECT_DIR$/project.management/eureka_server/pom.xml" />
       </list>
     </option>
   </component>
