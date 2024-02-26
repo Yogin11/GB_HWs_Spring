@@ -14,12 +14,12 @@
 </head>
 <body>
 <div class="container">
-    <h2>Добавить пользователя</h2>
+    <h2> <span th:text="${page_name}"> </span> </h2>
     <hr/>
     <form th:action="@{/saveDataUser}" th:object="${user}" method="post">
         
         <input type="text" th:field="*{name}" placeholder="Введите имя" class="form-control col-4 mb-4" />
-        <input type="password" maxlength="8" th:field="*{password}" placeholder="Введите пароль" class="form-control col-4 mb-4" />
+        <input type="text" th:field="*{surname}" placeholder="Введите Фамилию" class="form-control col-4 mb-4" />
         <input type="email" th:field="*{email}" placeholder="Введите email" class="form-control col-4 mb-4" />
         <input type="text" th:field="*{role}" placeholder="Введите должность" class="form-control col-4 mb-4" />
 

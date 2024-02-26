@@ -31,6 +31,8 @@ public class WebUsersController implements UIEndpointParsing {
     public ModelAndView addDataForm() {
         ModelAndView mav = new ModelAndView("add-user-form");
         User newUser = new User(0L, "", "", "", "");
+        String page_name = "Добавить пользователя";
+        mav.addObject("page_name",page_name);
         mav.addObject("user", newUser);
         return mav;
     }
@@ -46,6 +48,8 @@ public class WebUsersController implements UIEndpointParsing {
     public ModelAndView updateDataForm(Long userId) {
         ModelAndView mav = new ModelAndView("add-user-form");
         User updUser = feignClient.getUserById(userId).getBody();
+        String page_name = "Обновить данные пользователя";
+        mav.addObject("page_name",page_name);
         mav.addObject("user", updUser);
         fileGateway.writeToFile("user_table_actions.txt", "Данные пользователя с id='" + userId + "' обновлены в " +
                 LocalDateTime.now());
@@ -57,7 +61,6 @@ public class WebUsersController implements UIEndpointParsing {
         fileGateway.writeToFile("user_table_actions.txt", "Данные пользователя '" + delUser + "' с id='" +
                 userId + "' удалены в " + LocalDateTime.now());
         feignClient.removeUser(userId);
-
     }
 
 }

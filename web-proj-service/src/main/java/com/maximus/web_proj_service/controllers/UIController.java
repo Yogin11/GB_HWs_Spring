@@ -56,16 +56,13 @@ public class UIController {
     @PostMapping("/saveDataUser")
     public String saveData(@ModelAttribute User user) {
         uiInterface.saveData(user);
-
         return redirectUsersPage();
     }
 
 
     @GetMapping("/updateData")
     public ModelAndView updateData(@RequestParam("id") Long id) {
-
         return uiInterface.updateDataForm(id);
-
     }
     @GetMapping("/deleteData")
     public String deleteData(@RequestParam("id") Long id) {

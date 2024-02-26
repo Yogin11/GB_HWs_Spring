@@ -22,7 +22,7 @@
         <tr>
             <th>Id</th>
             <th>Имя</th>
-            <th>ПарольPassword</th>
+            <th>Фамилия</th>
             <th>Email</th>
             <th>Позиция</th>
             <th>Действия с записью</th>
@@ -33,7 +33,7 @@
         <tr th:each="user : ${users}">
             <td th:text="${user.id}"></td>
             <td th:text="${user.name}"></td>
-            <td th:text="${user.password}"></td>
+            <td th:text="${user.surname}"></td>
             <td th:text="${user.email}"></td>
             <td th:text="${user.role}"></td>
 

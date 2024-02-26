@@ -20,8 +20,8 @@ public class User {
     @Column(nullable = false)
     private String name;
 
-    /** пароль пользователя */
-    private String password;
+    /** фаимлия пользователя */
+    private String surname;
 
     /** email пользователя */
     private String email;

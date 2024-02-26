@@ -62,7 +62,7 @@ public class UserService {
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             user.setName(userDetails.getName());
-            user.setPassword(userDetails.getPassword());
+            user.setSurname(userDetails.getSurname());
             user.setEmail(userDetails.getEmail());
             user.setRole(userDetails.getRole());
             return userRepo.save(user);

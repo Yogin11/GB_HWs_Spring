@@ -20,10 +20,6 @@ spring:
           uri: http://127.0.0.1:8083/
           predicates:
             - Path=/user-project/**
-#        - id: web-service
-#          uri: http://127.0.0.1:8080/
-#          predicates:
-#            - Path=/general/**
 #      discovery:
 #        locator:
 #          enabled: true
