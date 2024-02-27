@@ -10,11 +10,24 @@
 6) Пользователь-проект (user-project-ms)
 7) Web представление (web-proj-service)
 
-Запуск осуществляется в указанном выше порядке, либо запустить конфигурацию (в IntelliJIDEA) "AllProject".
+Запуск осуществляется в указанном выше порядке, либо можно запустить конфигурацию (в IntelliJIDEA) "AllProject".
 
 ## Описание проекта
 
 Реализовано в REST и WEB представлениях.
+
+Скриншоты основных страниц -
+
+<image src="files/UIScreenShots/usersListView.png" alt="usersList">
+<image src="files/UIScreenShots/projectsListView.png" alt="projectsList">
+<image src="files/UIScreenShots/userDetailsView.png" alt="userDetails">
+<image src="files/UIScreenShots/projectDescriptionView.png" alt="projectDescription">
+<image src="files/UIScreenShots/addUsersToProjectView.png" alt="addUsersToProject">
+<image src="files/UIScreenShots/addProjectView.png" alt="addProject">
+<image src="files/UIScreenShots/userUpdateView.png" alt="userUpdate">
+<image src="files/UIScreenShots/addUserView.png" alt="addUser">
+
+
 
 Основные сущности: "Пользователь" и "Проект".
 
