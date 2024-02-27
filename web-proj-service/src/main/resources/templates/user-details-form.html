@@ -9,6 +9,7 @@
     rel="stylesheet" 
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
     crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../style.css">
 
 </head>
 <body>
@@ -16,19 +17,26 @@
     
     <!-- <div id="flip">Click to slide the panel down or up </div> -->
     
-    <h2>Проекты</h2>
+    
+    <h2>Пользователь</h2>
+    <div class="user_details" >
+        <p><label>Имя: </label><span th:text="${user.name}"> </span></p>
+        <p><label>Фамилия: </label><span th:text="${user.surname}"> </span></p>
+        <p><label>Email: </label><span th:text="${user.email}"> </span></p>
+        <p><label>Позиция: </label><span th:text="${user.role}"> </span></p>
+    </div>
+    <div id="knopka" class="btn btn-primary mb-2"> Cписок проектов пользователя</div>
+    <div id="panel">
+    <!-- <h2>Пользователи</h2>-->
     <hr/>
-    <a th:href="@{/addData}" class="btn btn-primary mb-2">Добавить проект</a>
-
+    <div>
     <table class="table table-bordered table-striped" id="project-table" >
         <thead>
         <tr>
             <th>Id</th>
             <th>Название</th>
-            <th>Описание</th>
+            <th>Описание проекта</th>
             <th>Дата создания</th>
-            <th>Действия с проектами</th>
-                       
         </tr>
         </thead>
         <tbody>
@@ -37,27 +45,25 @@
             <td th:text="${project.name}"></td>
             <td th:text="${project.description}"></td>
             <td th:text="${project.createdDate}"></td>
-            <td>
-                <a th:href="@{/dataDetails(id=${project.id})}" class="btn btn-info btn-sm ">Пользователи</a>
-                <a th:href="@{/updateData(id=${project.id})}" class="btn btn-warning btn-sm ml-2">Обновить</a>
-                <a th:href="@{/deleteData(id=${project.id})}" class="btn btn-danger  btn-sm ml-2">Удалить</a>
-            </td>
         </tr>
         </tbody>
     </table>
-    <a th:href="@{/}"> вернуться на главную </a>
+   <!-- <a th:href="@{/add}" class="btn btn-primary mb-2">Добавить пользователя</a> -->
+    </div>
+    </div>
+    <a th:href="@{/allData}"> назад к списку пользователей</a>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.0/datatables.min.js"></script>
+ <script> 
+    $(document).ready(function(){
+      $("#knopka").click(function(){
+        $("#panel").slideToggle("slow");
+      });
+    });
+    </script> 
 <script>
-    $(document).ready(function() {
-        $("#project-table").dataTable({
-            'aoColumnDefs': [{
-                'bSortable':false,
-                'aTargets': [-1]
-            }]
-        });
-    })
 </script>
+
 </body>
 </html>

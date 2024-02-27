@@ -4,6 +4,7 @@ import com.maximus.web_proj_service.models.Project;
 import com.maximus.web_proj_service.models.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,4 +53,17 @@ public interface WebUsersFeignClient {
 
     @DeleteMapping("/projects/{id}")
     void removeProject(@PathVariable("id") Long id);
+
+    @GetMapping("/user-project/projects/{projectId}")
+    ResponseEntity<List<User>> getUsersOfProject(@PathVariable("projectId")Long projectId);
+
+    @PostMapping("/user-project/projects/{projectId}/{userId}")
+    void addUserToProject(@PathVariable("userId")Long userId,@PathVariable("projectId") Long projectId);
+
+    @DeleteMapping("/user-project/projects/{projectId}/{userId}")
+    void removeUserFromProject(@PathVariable("userId")Long userId,@PathVariable("projectId") Long projectId);
+
+    @GetMapping("/user-project/users/{userId}")
+    ResponseEntity<List<Project>> getProjectsOfUser(@PathVariable("userId")Long userId);
+
 }

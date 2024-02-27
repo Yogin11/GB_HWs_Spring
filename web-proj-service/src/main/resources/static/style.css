@@ -1,0 +1,25 @@
+/* html{
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before{
+    box-sizing: inherit;
+} */
+
+body{
+   
+    /* font-family: 'Roboto', sans-serif; */
+    /* background: #070A1B; */
+    font-weight: 300;
+    font-size: 20px;
+    /* color: #fff; */
+
+}
+label{
+    color: rgb(27, 84, 97);
+    font-weight: 500;
+    font-size: 19px;
+    width: 30ch;
+}

@@ -1,6 +1,7 @@
 package com.maximus.web_proj_service.controllers;
 
 import com.maximus.web_proj_service.feign_clients.WebUsersFeignClient;
+import com.maximus.web_proj_service.models.Project;
 import com.maximus.web_proj_service.models.User;
 import com.maximus.web_proj_service.services.FileGateway;
 import lombok.RequiredArgsConstructor;
@@ -61,6 +62,30 @@ public class WebUsersController implements UIEndpointParsing {
         fileGateway.writeToFile("user_table_actions.txt", "Данные пользователя '" + delUser + "' с id='" +
                 userId + "' удалены в " + LocalDateTime.now());
         feignClient.removeUser(userId);
+    }
+
+    public ModelAndView addDataDetailsForm(Long userId) {
+        ModelAndView mav = new ModelAndView("user-details-form");
+        User foundUser = feignClient.getUserById(userId).getBody();
+        List<Project> projectsOfUser = feignClient.getProjectsOfUser(userId).getBody();
+        mav.addObject("user", foundUser);
+        mav.addObject("projects",projectsOfUser);
+        return mav;
+    }
+
+    @Override
+    public ModelAndView addUsersToProjectForm(Long projectId) {
+        return null;
+    }
+
+    @Override
+    public void addUsersToProject(Long projectID, List<Long> Ids) {
+
+    }
+
+    @Override
+    public void removeUserFromProject(Long userId, Long projectId) {
+
     }
 
 }

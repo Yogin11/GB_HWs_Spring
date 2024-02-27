@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-//@RequiredArgsConstructor
+import java.util.List;
+
 @Data
 @Controller
 public class UIController {
@@ -86,6 +87,30 @@ public class UIController {
     @GetMapping("/deleteData")
     public String deleteData(@RequestParam("id") Long id) {
         uiInterface.deleteData(id);
+        return REDIRECT_STRING;
+    }
+
+
+    @GetMapping("/dataDetails")
+    public ModelAndView showDataDetails(@RequestParam("id") Long id) {
+        return uiInterface.addDataDetailsForm(id);
+    }
+
+    @GetMapping("/addUserToProject")
+    public ModelAndView showAddUserToProjectForm(@RequestParam("id") Long id) {
+        return uiInterface.addUsersToProjectForm(id);
+    }
+
+    @PostMapping("/addUserToProject/addUsers")
+    public String addUsersToProject(@RequestParam("id")Long projectId,
+                                    @RequestParam("choosenUsers")List<Long> choosenIds) {
+
+        uiInterface.addUsersToProject(projectId, choosenIds);
+        return REDIRECT_STRING;
+    }
+    @GetMapping("/deleteUserFromProject")
+    public String deleteUserFromProject(@RequestParam("userId") Long userId, @RequestParam("projectId") Long projectId ) {
+        uiInterface.removeUserFromProject(userId,projectId);
         return REDIRECT_STRING;
     }
 
